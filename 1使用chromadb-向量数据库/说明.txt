@@ -1,0 +1,15 @@
+本地环境为mac m1:
+
+pip install torch torchvision torchaudio
+pip install sentence-transformers
+
+1,如果运行时提示numpy的版本过高，则需要降级：
+pip uninstall numpy -y
+pip install "numpy<2"
+
+pip uninstall torch -y
+pip install --pre torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/nightly/cpu
+
+2，使用中文embedding时，需要先将模型下载到本地，执行proxy-download-model.py
+需要科学上网，博主本机的代理端口是1087
+
