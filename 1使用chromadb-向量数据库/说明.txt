@@ -1,7 +1,22 @@
-本地环境为mac m1:
+使用docker部署向量数据库 这里选用的是chroma
+1，先拉取镜像
+docker pull chromadb/chroma:1.0.16.dev64
 
+2，然后运行
+docker run -d -p 8000:8000 \
+  --name chroma \
+  -v /Users/yxy/work/docker/data/chroma/chroma_data:/chroma/chroma \
+  chromadb/chroma:1.0.16.dev64
+
+3，使用浏览器访问：
+http://localhost:8000/api/v2/heartbeat
+会返回一个json串，就表示成功
+
+
+本地环境为mac m1，使用pip安装插件
 pip install torch torchvision torchaudio
 pip install sentence-transformers
+
 
 1,如果运行时提示numpy的版本过高，则需要降级：
 pip uninstall numpy -y
